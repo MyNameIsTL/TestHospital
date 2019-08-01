@@ -1,4 +1,4 @@
-package com.example.testhospital;
+package com.example.testhospital.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
+
+import com.example.testhospital.R;
 
 public class HomeActivity extends AppCompatActivity {
 

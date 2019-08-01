@@ -7,9 +7,18 @@
     <color name="colorBlack">#2C3E5E</color>
     <color name="bg_blue_corners">#169AFF</color>
     <color name="colorBlue">#169AFF</color>
+    <color name="colorRed">#FF5757</color>
     <color name="bg_blue">#37bcfc</color>
     <color name="bg_blue_notes_corners">#4b72fe</color>
     <color name="bg_red_notes_corners">#fe5857</color>
     <color name="bg_orange_corners">#FE680C</color>
     <color name="colorGray">#99A0B0</color>
+    <color name="colorGray_2">#2C2E5E</color>
+
+    <!--search-->
+    <color name="tv_gray">#666666</color>
+    <color name="te_search_result_gray">#99a0b0</color>
+    <color name="tv_blue">#308BE9</color>
+    <color name="divider_gray">#d9d9d9</color>
+    <color name="text_save_record_gray">#99a0b0</color>
 </resources>

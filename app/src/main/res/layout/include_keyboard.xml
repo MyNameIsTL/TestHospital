@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/key_pad_button_height">
+
+        <TextView
+            android:id="@+id/key_pad_A"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="A"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_B"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="B"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_C"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="C"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_D"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="D"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_E"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="E"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/key_pad_button_height"
+        android:layout_marginTop="@dimen/key_pad_spacing">
+
+        <TextView
+            android:id="@+id/key_pad_F"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="F"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_G"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="G"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_H"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="H"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_I"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="I"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_J"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="J"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/key_pad_button_height"
+        android:layout_marginTop="@dimen/key_pad_spacing">
+
+        <TextView
+            android:id="@+id/key_pad_K"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="K"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_L"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="L"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_M"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="M"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_N"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="N"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_O"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="O"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/key_pad_button_height"
+        android:layout_marginTop="@dimen/key_pad_spacing">
+
+        <TextView
+            android:id="@+id/key_pad_P"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="P"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_Q"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="Q"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_R"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="R"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_S"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="S"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_T"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="T"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/key_pad_button_height"
+        android:layout_marginTop="@dimen/key_pad_spacing">
+
+        <TextView
+            android:id="@+id/key_pad_U"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="U"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_V"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="V"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_W"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="W"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_X"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="X"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/key_pad_Y"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="Y"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/key_pad_button_height"
+        android:layout_marginTop="@dimen/key_pad_spacing">
+
+        <TextView
+            android:id="@+id/key_pad_Z"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/bg_keyboard"
+            android:gravity="center"
+            android:text="Z"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/bg_keyboard"
+            android:layout_marginRight="@dimen/key_pad_spacing"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/key_pad_del"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/key_pad_spacing"
+                android:src="@drawable/ic_key_pad_del" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/key_pad_save"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/bg_keyboard_button_blue"
+            android:gravity="center"
+            android:text="保存"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/colorWhite"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -4,4 +4,11 @@
     <dimen name="bg_margin_top_bottom">20dp</dimen>
 
     <dimen name="bg_corners">20dp</dimen>
+    <!--keypad-->
+    <dimen name="key_pad_spacing">6dp</dimen>
+    <dimen name="key_pad_button_height">50dp</dimen>
+    <dimen name="bg_record_project_height">135dp</dimen>
+    <dimen name="bg_record_project_width">120dp</dimen>
+    <dimen name="item_pay_service_height">48dp</dimen>
+    <dimen name="item_pay_service_height_1">49dp</dimen>
 </resources>

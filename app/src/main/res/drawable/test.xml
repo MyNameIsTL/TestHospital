@@ -36,7 +36,7 @@
                 android:startColor="#FFFFFF" />
 
             <corners
-                android:topRightRadius="5pt" />
+                android:topRightRadius="@dimen/bg_corners" />
         </shape>
     </item>
 </layer-list>

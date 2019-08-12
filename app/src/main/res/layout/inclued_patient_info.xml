@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white_corners"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="@dimen/bg_padding_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/txt_big_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="床"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/txt_little_size"
+            android:gravity="bottom"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="刘祥宇"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/txt_big_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="男"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/txt_little_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="29岁"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/txt_little_size" />
+    </LinearLayout>
+</LinearLayout>

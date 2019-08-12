@@ -2,6 +2,7 @@
 <resources>
     <dimen name="bg_margin_left_right">30dp</dimen>
     <dimen name="bg_margin_top_bottom">20dp</dimen>
+    <dimen name="bg_padding_margin">20dp</dimen>
 
     <dimen name="bg_corners">20dp</dimen>
     <!--keypad-->
@@ -11,4 +12,14 @@
     <dimen name="bg_record_project_width">120dp</dimen>
     <dimen name="item_pay_service_height">48dp</dimen>
     <dimen name="item_pay_service_height_1">49dp</dimen>
+    <!--font-->
+    <dimen name="txt_big_size">50sp</dimen>
+    <dimen name="txt_large_size">40sp</dimen>
+    <dimen name="txt_middle_size">28sp</dimen>
+
+
+    <dimen name="txt_little_size">22sp</dimen>
+
+
+    <dimen name="line_spacing_one">10dp</dimen>
 </resources>

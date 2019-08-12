@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white_corners"
+    android:padding="@dimen/bg_padding_margin">
+
+    <ImageView
+        android:id="@+id/iv_blue_close"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/colse" />
+
+    <FrameLayout
+        android:id="@+id/infusion_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/water_drop_middle" />
+
+        <ImageView
+            android:id="@+id/water_drop"
+            android:layout_width="13dp"
+            android:layout_height="21dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/water_droplets" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/water_drop_up" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/water_drop_down" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/infusion_photo"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/time_line"
+            android:background="@drawable/bg_orange_corners"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="监控断开"
+                android:textColor="#fff"
+                android:textSize="@dimen/txt_little_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/time_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/line_spacing_one"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="01:08"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/txt_large_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="分钟"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/txt_little_size" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

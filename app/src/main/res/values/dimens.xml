@@ -19,6 +19,7 @@
 
 
     <dimen name="txt_little_size">22sp</dimen>
+    <dimen name="txt_small_size">18sp</dimen>
 
 
     <dimen name="line_spacing_one">10dp</dimen>

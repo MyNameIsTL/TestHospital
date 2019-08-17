@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white_corners"
+    android:padding="@dimen/bg_padding_margin">
+
+    <ListView
+        android:id="@+id/device_bluetooth_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

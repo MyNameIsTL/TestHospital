@@ -56,6 +56,8 @@
                     android:layout_weight="1" />
 
                 <include
+                    android:id="@+id/include_infusion_status_one"
+                    android:visibility="gone"
                     layout="@layout/inclued_infusion_status_one"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -64,6 +66,16 @@
                     android:layout_marginRight="30dp"
                     android:layout_weight="1" />
 
+
+                <include
+                    android:id="@+id/include_infusion_status_two"
+                    layout="@layout/inclued_infusion_status_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_weight="1" />
             </LinearLayout>
         </LinearLayout>
 

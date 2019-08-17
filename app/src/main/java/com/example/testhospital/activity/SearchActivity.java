@@ -1,9 +1,11 @@
 package com.example.testhospital.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 
 import com.example.testhospital.R;
 import com.example.testhospital.view.LineBreakLayout;
@@ -16,6 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
     private LineBreakLayout lineBreakLayout;
     private List<String> selectedLables;
+    private StringBuffer mSerachContent = new StringBuffer("");
+    private EditText et_search_content;
+    private int currentCursor = 0;
 
 
     @Override
@@ -38,7 +43,36 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     //初始化控件
     private void initView() {
         lineBreakLayout = findViewById(R.id.lineBreakLayout);
+        et_search_content = findViewById(R.id.et_search_content);
         findViewById(R.id.iv_back).setOnClickListener(this);
+        findViewById(R.id.key_pad_A).setOnClickListener(this);
+        findViewById(R.id.key_pad_B).setOnClickListener(this);
+        findViewById(R.id.key_pad_C).setOnClickListener(this);
+        findViewById(R.id.key_pad_D).setOnClickListener(this);
+        findViewById(R.id.key_pad_E).setOnClickListener(this);
+        findViewById(R.id.key_pad_F).setOnClickListener(this);
+        findViewById(R.id.key_pad_G).setOnClickListener(this);
+        findViewById(R.id.key_pad_H).setOnClickListener(this);
+        findViewById(R.id.key_pad_I).setOnClickListener(this);
+        findViewById(R.id.key_pad_J).setOnClickListener(this);
+        findViewById(R.id.key_pad_K).setOnClickListener(this);
+        findViewById(R.id.key_pad_L).setOnClickListener(this);
+        findViewById(R.id.key_pad_M).setOnClickListener(this);
+        findViewById(R.id.key_pad_N).setOnClickListener(this);
+        findViewById(R.id.key_pad_O).setOnClickListener(this);
+        findViewById(R.id.key_pad_P).setOnClickListener(this);
+        findViewById(R.id.key_pad_Q).setOnClickListener(this);
+        findViewById(R.id.key_pad_R).setOnClickListener(this);
+        findViewById(R.id.key_pad_S).setOnClickListener(this);
+        findViewById(R.id.key_pad_T).setOnClickListener(this);
+        findViewById(R.id.key_pad_U).setOnClickListener(this);
+        findViewById(R.id.key_pad_V).setOnClickListener(this);
+        findViewById(R.id.key_pad_W).setOnClickListener(this);
+        findViewById(R.id.key_pad_X).setOnClickListener(this);
+        findViewById(R.id.key_pad_Y).setOnClickListener(this);
+        findViewById(R.id.key_pad_Z).setOnClickListener(this);
+        findViewById(R.id.key_pad_del).setOnClickListener(this);
+        findViewById(R.id.key_pad_save).setOnClickListener(this);
         initLael();
     }
 
@@ -67,6 +101,104 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.iv_back:
                 finish();
                 break;
+            case R.id.key_pad_A:
+                getString("A");
+                break;
+            case R.id.key_pad_B:
+                getString("B");
+                break;
+            case R.id.key_pad_C:
+                getString("C");
+                break;
+            case R.id.key_pad_D:
+                getString("D");
+                break;
+            case R.id.key_pad_E:
+                getString("E");
+                break;
+            case R.id.key_pad_F:
+                getString("F");
+                break;
+            case R.id.key_pad_G:
+                getString("G");
+                break;
+            case R.id.key_pad_H:
+                getString("H");
+                break;
+            case R.id.key_pad_I:
+                getString("I");
+                break;
+            case R.id.key_pad_J:
+                getString("J");
+                break;
+            case R.id.key_pad_K:
+                getString("K");
+                break;
+            case R.id.key_pad_L:
+                getString("L");
+                break;
+            case R.id.key_pad_M:
+                getString("M");
+                break;
+            case R.id.key_pad_N:
+                getString("N");
+                break;
+            case R.id.key_pad_O:
+                getString("O");
+                break;
+            case R.id.key_pad_P:
+                getString("P");
+                break;
+            case R.id.key_pad_Q:
+                getString("Q");
+                break;
+            case R.id.key_pad_R:
+                getString("R");
+                break;
+            case R.id.key_pad_S:
+                getString("S");
+                break;
+            case R.id.key_pad_T:
+                getString("T");
+                break;
+            case R.id.key_pad_U:
+                getString("U");
+                break;
+            case R.id.key_pad_V:
+                getString("V");
+                break;
+            case R.id.key_pad_W:
+                getString("W");
+                break;
+            case R.id.key_pad_X:
+                getString("X");
+                break;
+            case R.id.key_pad_Y:
+                getString("Y");
+                break;
+            case R.id.key_pad_Z:
+                getString("Z");
+                break;
+            case R.id.key_pad_del:
+                deleString();
+                break;
+            case R.id.key_pad_save:
+                break;
+        }
+        et_search_content.setText(mSerachContent);
+        et_search_content.setSelection(currentCursor + 1);
+    }
+
+    private void getString(String content) {
+        currentCursor = et_search_content.getSelectionStart();
+        mSerachContent.insert(currentCursor, content);
+    }
+
+    private void deleString() {
+        if(mSerachContent.length()!=0&&currentCursor>-1){
+            currentCursor = et_search_content.getSelectionStart();
+            mSerachContent.delete(currentCursor - 1, currentCursor);
+            currentCursor = currentCursor - 2;
         }
     }
 }

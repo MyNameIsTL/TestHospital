@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEF2F8"
+    android:orientation="vertical">
+
+    <include layout="@layout/inclued_title_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/bg_margin_left_right"
+        android:layout_marginRight="@dimen/bg_margin_left_right"
+        android:layout_marginBottom="@dimen/bg_margin_top_bottom"
+        android:background="#EEF1F8"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:background="@drawable/bg_blue_corners"
+                    android:padding="10dp"
+                    android:text="读取设备数据"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/txt_middle_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="10dp"
+                        android:text="体温"
+                        android:textColor="@color/colorGray_2"
+                        android:textSize="@dimen/txt_middle_two_size" />
+
+                    <FrameLayout
+                        android:layout_width="60dp"
+                        android:layout_height="250dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="97dp"
+                            android:gravity="center_horizontal">
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="1dp"
+                                android:background="@color/colorGray" />
+                        </LinearLayout>
+
+                        <com.example.testhospital.view.PickerView
+                            android:id="@+id/pv_temperature_integer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal">
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="153dp"
+                                android:background="@color/colorGray" />
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="."
+                        android:textSize="@dimen/txt_large_size"
+                        android:textStyle="bold" />
+
+                    <FrameLayout
+                        android:layout_width="60dp"
+                        android:layout_height="250dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="97dp"
+                            android:gravity="center_horizontal">
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="1dp"
+                                android:background="@color/colorGray" />
+                        </LinearLayout>
+
+                        <com.example.testhospital.view.PickerView
+                            android:id="@+id/pv_temperature_decimal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal">
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="153dp"
+                                android:background="@color/colorGray" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:background="@drawable/bg_blue_corners"
+                    android:padding="10dp"
+                    android:text="读取设备数据"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/txt_middle_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="10dp"
+                        android:text="脉搏"
+                        android:textColor="@color/colorGray_2"
+                        android:textSize="@dimen/txt_middle_two_size" />
+
+                    <FrameLayout
+                        android:layout_width="60dp"
+                        android:layout_height="250dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="97dp"
+                            android:gravity="center_horizontal">
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="1dp"
+                                android:background="@color/colorGray" />
+                        </LinearLayout>
+
+                        <com.example.testhospital.view.PickerView
+                            android:id="@+id/pv_pulse_ten_place"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal">
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="153dp"
+                                android:background="@color/colorGray" />
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="60dp"
+                        android:layout_height="250dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="97dp"
+                            android:gravity="center_horizontal">
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="1dp"
+                                android:background="@color/colorGray" />
+                        </LinearLayout>
+
+                        <com.example.testhospital.view.PickerView
+                            android:id="@+id/pv_pulse_bit"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal">
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="153dp"
+                                android:background="@color/colorGray" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:background="@drawable/bg_blue_corners"
+                    android:padding="10dp"
+                    android:text="读取设备数据"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/txt_middle_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="10dp"
+                        android:text="呼吸"
+                        android:textColor="@color/colorGray_2"
+                        android:textSize="@dimen/txt_middle_two_size" />
+
+                    <FrameLayout
+                        android:layout_width="60dp"
+                        android:layout_height="250dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="97dp"
+                            android:gravity="center_horizontal">
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="1dp"
+                                android:background="@color/colorGray" />
+                        </LinearLayout>
+
+                        <com.example.testhospital.view.PickerView
+                            android:id="@+id/pv_breathing_ten_place"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal">
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="153dp"
+                                android:background="@color/colorGray" />
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="60dp"
+                        android:layout_height="250dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="97dp"
+                            android:gravity="center_horizontal">
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="1dp"
+                                android:background="@color/colorGray" />
+                        </LinearLayout>
+
+                        <com.example.testhospital.view.PickerView
+                            android:id="@+id/pv_breathing_bit"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal">
+
+                            <View
+                                android:layout_width="50dp"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="153dp"
+                                android:background="@color/colorGray" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="300dp"
+                android:layout_marginRight="300dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+
+                <include layout="@layout/include_trimeter_keyboard" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

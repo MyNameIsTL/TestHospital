@@ -19,21 +19,25 @@
             android:layout_marginTop="20dp"
             android:src="@drawable/ic_back" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="700dp"
-                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/ll_trimeter_line"
+                android:layout_width="match_parent"
+                android:layout_height="145dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginRight="200dp"
                 android:background="@drawable/bg_save_record_info_frame">
 
                 <LinearLayout
                     android:layout_width="@dimen/bg_record_project_width"
-                    android:layout_height="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignStart="@+id/ll_trimeter_line"
+                    android:layout_alignTop="@+id/ll_trimeter_line"
                     android:background="@drawable/bg_white_one"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -56,18 +60,20 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="150dp">
+                    android:layout_height="match_parent">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginLeft="30dp"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="0dp"
                             android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
                             android:text="最新记录"
                             android:textColor="@color/colorWhite"
                             android:textSize="24sp"
@@ -75,8 +81,9 @@
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
                             android:text="三测表"
                             android:textColor="@color/colorWhite"
                             android:textSize="20sp"
@@ -84,8 +91,9 @@
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
                             android:orientation="horizontal">
 
                             <TextView
@@ -98,6 +106,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_temperature"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="38.3"
@@ -124,6 +133,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_pulse"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="73"
@@ -150,6 +160,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_breathing"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="20"
@@ -167,13 +178,14 @@
                         </LinearLayout>
                     </LinearLayout>
 
+                    <!--最新记录右边的时间和修改-->
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginRight="30dp"
-                        android:layout_marginTop="10dp">
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="30dp">
 
                         <LinearLayout
                             android:id="@+id/time_line"
@@ -183,6 +195,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/tv_date"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="2019/07/01"
@@ -190,6 +203,7 @@
                                 android:textSize="24sp" />
 
                             <TextView
+                                android:id="@+id/tv_time"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
@@ -201,29 +215,31 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
                             android:layout_below="@id/time_line"
+                            android:layout_alignParentRight="true"
                             android:src="@drawable/ic_modify" />
                     </RelativeLayout>
                 </RelativeLayout>
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <LinearLayout
+                android:id="@+id/project_list"
+                android:layout_width="wrap_content"
+                android:layout_height="380dp"
+                android:layout_alignParentBottom="true"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp">
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/record_type_line_1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="@dimen/bg_record_project_width"
-                        android:layout_height="@dimen/bg_record_project_height"
+                        android:layout_height="match_parent"
                         android:layout_marginRight="2dp"
                         android:background="@drawable/bg_white_three"
                         android:gravity="center"
@@ -245,8 +261,9 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/ll_trimeter"
                         android:layout_width="@dimen/bg_record_project_width"
-                        android:layout_height="@dimen/bg_record_project_height"
+                        android:layout_height="match_parent"
                         android:layout_marginRight="2dp"
                         android:background="@drawable/bg_white_two"
                         android:gravity="center"
@@ -269,7 +286,7 @@
 
                     <LinearLayout
                         android:layout_width="@dimen/bg_record_project_width"
-                        android:layout_height="@dimen/bg_record_project_height"
+                        android:layout_height="match_parent"
                         android:layout_marginRight="2dp"
                         android:background="@drawable/bg_white_two"
                         android:gravity="center"
@@ -292,7 +309,7 @@
 
                     <LinearLayout
                         android:layout_width="@dimen/bg_record_project_width"
-                        android:layout_height="@dimen/bg_record_project_height"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_white_two"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -315,13 +332,14 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/record_type_line_1"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="@dimen/bg_record_project_width"
-                        android:layout_height="@dimen/bg_record_project_height"
+                        android:layout_height="match_parent"
                         android:layout_marginRight="2dp"
                         android:background="@drawable/bg_white_three"
                         android:gravity="center"
@@ -344,7 +362,7 @@
 
                     <LinearLayout
                         android:layout_width="@dimen/bg_record_project_width"
-                        android:layout_height="@dimen/bg_record_project_height"
+                        android:layout_height="match_parent"
                         android:layout_marginRight="2dp"
                         android:background="@drawable/bg_white_two"
                         android:gravity="center"
@@ -367,7 +385,7 @@
 
                     <LinearLayout
                         android:layout_width="@dimen/bg_record_project_width"
-                        android:layout_height="@dimen/bg_record_project_height"
+                        android:layout_height="match_parent"
                         android:layout_marginRight="2dp"
                         android:background="@drawable/bg_white_two"
                         android:gravity="center"
@@ -390,7 +408,7 @@
 
                     <LinearLayout
                         android:layout_width="@dimen/bg_record_project_width"
-                        android:layout_height="@dimen/bg_record_project_height"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_white_two"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -410,62 +428,191 @@
 
                     </LinearLayout>
                 </LinearLayout>
+            </LinearLayout>
 
-                <RelativeLayout
+            <!--人脸登录页-->
+            <LinearLayout
+                android:id="@+id/ll_face_login_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="80dp"
+                android:layout_toRightOf="@id/project_list"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="150dp"
-                    android:gravity="center">
+                    android:textSize="@dimen/txt_middle_size"
+                    android:text="正在扫描..."
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginBottom="20dp"/>
 
-                    <LinearLayout
+                <FrameLayout
+                    android:layout_width="360dp"
+                    android:layout_height="360dp">
+                    <com.yxq.camera.CameraPreview
+                        android:id="@+id/cp_camera_preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <ImageView
+                        android:id="@+id/scan_line"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:src="@drawable/ic_line" />
 
-                        <com.example.testhospital.view.CircleImageView
-                            android:id="@+id/iv_nurse_photo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:src="@drawable/head_photo_nurse" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_frame" />
+                </FrameLayout>
+            </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/tv_nurse_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:text="您好，廖玲"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
+            <!--手输登录页-->
+            <LinearLayout
+                android:id="@+id/ll_input_login_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="80dp"
+                android:layout_toRightOf="@id/project_list"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:alpha="0.5"
-                            android:text="请选择左侧项目进行录入"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/ll_input_login_page"
+                    android:layout_alignTop="@+id/ll_input_login_page"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="刷脸失败,请使用工号登录"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/txt_middle_two_size" />
 
-                        <Button
-                            android:id="@+id/btn_exit_login"
-                            android:layout_width="150dp"
-                            android:layout_height="50dp"
-                            android:layout_marginBottom="20dp"
-                            android:background="@drawable/bg_btn_red_corners"
-                            android:text="退出登录"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </RelativeLayout>
-            </RelativeLayout>
-        </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_job_number"
+                    android:layout_width="360dp"
+                    android:layout_height="58dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_input_white_frame"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_job_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/ic_job_number" />
+
+                    <TextView
+                        android:id="@+id/tv_nurse_job_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="40dp"
+                        android:hint="请输入工号"
+                        android:inputType="number"
+                        android:text="@null"
+                        android:textColor="@color/colorGray"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_password"
+                    android:layout_width="360dp"
+                    android:layout_height="58dp"
+                    android:background="@drawable/bg_input_white_frame"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/ic_password_false" />
+
+                    <TextView
+                        android:id="@+id/tv_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="40dp"
+                        android:hint="请输入密码"
+                        android:inputType="number"
+                        android:text="@null"
+                        android:textColor="@color/colorGray"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <include
+                    layout="@layout/include_number_keyboard"
+                    android:layout_width="360dp"
+                    android:layout_height="280dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp" />
+            </LinearLayout>
+
+            <!--护士头像页-->
+            <LinearLayout
+                android:id="@+id/ll_nurse_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="80dp"
+                android:layout_toRightOf="@id/project_list"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.example.testhospital.view.CircleImageView
+                        android:id="@+id/iv_nurse_photo"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/head_photo_nurse" />
+
+                    <TextView
+                        android:id="@+id/tv_nurse_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:text="您好，廖玲"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:alpha="0.5"
+                        android:text="请选择左侧项目进行录入"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_exit_login"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/bg_btn_red_corners"
+                        android:text="退出登录"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
     <RelativeLayout
@@ -505,8 +652,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/title_line"
-            android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
     </RelativeLayout>
 </LinearLayout>

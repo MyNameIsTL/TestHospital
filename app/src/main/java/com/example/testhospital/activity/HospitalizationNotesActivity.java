@@ -26,6 +26,7 @@ public class HospitalizationNotesActivity extends AppCompatActivity implements V
             getSupportActionBar().hide();
         }
         setContentView(R.layout.activity_hospitalization_notes);
+        findViewById(R.id.iv_notes_title).setOnClickListener(this);
         init();
     }
 
@@ -36,7 +37,7 @@ public class HospitalizationNotesActivity extends AppCompatActivity implements V
                 "\n" +
                 "2、医保患者须携带身份证、医保卡、异地农合患者须带当地转诊证明，农合证、身份证及住院押金。\n" +
                 "\n" +
-                "3、患者住院期间无特殊情况不要离开医院，有事外出需经主管医生或值班护士许可后方可离开。每日费用清单中\n的疑虑处请找责任护士或护士长咨询。\n" +
+                "3、患者住院期间无特殊情况不要离开医院，有事外出需经主管医生或值班护士许可后方可离开。每日费用清单中\n\n的疑虑处请找责任护士或护士长咨询。\n" +
                 "\n" +
                 "4、在病情需要时，医嘱会要求您留守陪护，如陪护有事离开病人请告知护士。\n" +
                 "\n" +
@@ -62,7 +63,7 @@ public class HospitalizationNotesActivity extends AppCompatActivity implements V
                 "\n" +
                 "15、为了您及他人健康，请不要吸烟，病区有指定吸烟区。晚23点关闭电视，以免影响他人。\n" +
                 "\n" +
-                "16、须办理慢性病的患者请您到病案室复印相关资料，携带照片、出院证、医保卡、身份证到指定的医院办理\n（区卡需到单位领取盖章的慢性病申请表）。";
+                "16、须办理慢性病的患者请您到病案室复印相关资料，携带照片、出院证、医保卡、身份证到指定的医院办理\n\n（区卡需到单位领取盖章的慢性病申请表）。";
         ((TextView) findViewById(R.id.tv_content)).setText(content);
     }
 
@@ -71,6 +72,9 @@ public class HospitalizationNotesActivity extends AppCompatActivity implements V
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_back:
+                finish();
+                break;
+                case R.id.iv_notes_title:
                 finish();
                 break;
         }

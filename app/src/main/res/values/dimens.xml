@@ -8,8 +8,8 @@
     <!--keypad-->
     <dimen name="key_pad_spacing">6dp</dimen>
     <dimen name="key_pad_button_height">50dp</dimen>
-    <dimen name="bg_record_project_height">135dp</dimen>
-    <dimen name="bg_record_project_width">120dp</dimen>
+    <dimen name="bg_record_project_height">165dp</dimen>
+    <dimen name="bg_record_project_width">150dp</dimen>
     <dimen name="item_pay_service_height">48dp</dimen>
     <dimen name="item_pay_service_height_1">49dp</dimen>
     <!--font-->

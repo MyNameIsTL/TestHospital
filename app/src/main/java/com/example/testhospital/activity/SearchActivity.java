@@ -1,7 +1,7 @@
 package com.example.testhospital.activity;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.text.InputType;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -74,6 +74,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         findViewById(R.id.key_pad_del).setOnClickListener(this);
         findViewById(R.id.key_pad_save).setOnClickListener(this);
         initLael();
+        et_search_content.setInputType(InputType.TYPE_NULL);
     }
 
     //初始化标签
@@ -180,13 +181,15 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 getString("Z");
                 break;
             case R.id.key_pad_del:
-                deleString();
+                deleteString();
                 break;
             case R.id.key_pad_save:
                 break;
         }
-        et_search_content.setText(mSerachContent);
-        et_search_content.setSelection(currentCursor + 1);
+        if (v.getId() != R.id.iv_back) {
+            et_search_content.setText(mSerachContent);
+            et_search_content.setSelection(currentCursor + 1);
+        }
     }
 
     private void getString(String content) {
@@ -194,8 +197,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         mSerachContent.insert(currentCursor, content);
     }
 
-    private void deleString() {
-        if(mSerachContent.length()!=0&&currentCursor>-1){
+    private void deleteString() {
+        if (mSerachContent.length() != 0 && currentCursor > -1) {
             currentCursor = et_search_content.getSelectionStart();
             mSerachContent.delete(currentCursor - 1, currentCursor);
             currentCursor = currentCursor - 2;

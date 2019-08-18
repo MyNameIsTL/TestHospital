@@ -92,7 +92,8 @@
                 android:layout_weight="7"
                 android:background="@drawable/test"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingLeft="20dp">
 
                 <include
                     layout="@layout/inclued_patient_details_info"

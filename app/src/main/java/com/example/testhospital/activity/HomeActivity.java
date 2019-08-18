@@ -306,13 +306,6 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
             @Override
             public void onAnimationEnd(Animator animator) {
                 mImageView.setVisibility(View.GONE);
-//                 try {
-//                     animatorPause();
-//                    Thread.sleep(1000);
-//                     animatorResume();
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                }
             }
 
             @Override
@@ -417,7 +410,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
                 Log.e(TAG, "Unable to initialize Bluetooth");
                 finish();
             }
-              btStatus.setText(R.string.bt_status_3);
+            btStatus.setText(R.string.bt_status_3);
             Log.d("Test", "蓝牙连接状态：" + HomeActivity.this.getString(R.string.bt_status_3));
             registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
             // Automatically connects to the device upon successful start-up initialization.
@@ -598,6 +591,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
         super.onResume();
         connect();
         isOnPause = false;
+        scanLeDevice(true);
     }
 
     private void connect() {
@@ -626,8 +620,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
         timer.stop();
         if (mPlayer != null)
             mPlayer.stop();
-
-        vibrator.cancel();
+//        vibrator.cancel();
         stopTimerTask();
         unregisterReceiver(mGattUpdateReceiver);
         unbindService(mServiceConnection);
@@ -771,7 +764,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
             @Override
             public void run() {
 //                mConnectionState.setText(resourceId);
-                 btStatus.setText(resourceId);
+                btStatus.setText(resourceId);
                 Log.d("Test", "updateConnectionState=" + resourceId);
             }
         });
@@ -800,7 +793,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
             mPlayer.stop();
         }
         if (isVibrate) {
-           // vibrator.cancel();
+            // vibrator.cancel();
         }
     }
 

@@ -4,8 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_white_corners"
     android:gravity="center_vertical"
-    android:orientation="vertical"
-    android:padding="@dimen/bg_padding_margin">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -128,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="半流质饮食"
+                android:text="半流\n质饮\n食"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/txt_middle_size" />
         </LinearLayout>

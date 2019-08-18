@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class DetailedListActivity extends AppCompatActivity implements View.OnClickListener {
     private ListView mListView;
     private List<PayServiceInfo> mList = new ArrayList<>();
+    private static int TOTAL = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +46,15 @@ public class DetailedListActivity extends AppCompatActivity implements View.OnCl
         mList.add(new PayServiceInfo("建档费", "次", "次", "8.00", "1", "8.00"));
         mList.add(new PayServiceInfo("一般专项护理", "次", "次", "9.00", "1", "9.00"));
         int size = mList.size();
-        if (size < 7) {
-            for (int i = 0; i < 7 - size; i++) {
+        if (size < TOTAL) {
+            for (int i = 0; i < TOTAL - size; i++) {
                 mList.add(new PayServiceInfo("", "", "", "", "", ""));
             }
         }
     }
 
     private void initView() {
+        findViewById(R.id.iv_back).setOnClickListener(this);
         ((TextView) findViewById(R.id.title)).setText("成都市人民医院住院费用清单");
         mListView = findViewById(R.id.list_view);
         PayServiceAdapter adapter = new PayServiceAdapter(this, mList);

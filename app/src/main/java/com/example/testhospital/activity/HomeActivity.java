@@ -43,6 +43,7 @@ import android.widget.Chronometer;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -69,6 +70,9 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
 
     View include_one;
     View include_two;
+    ImageView ivCloseBlueToothDisplay;
+
+    private boolean isBound = false;
 
 
     // 5.0+n版本
@@ -86,6 +90,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         waterDropAnimation();
+        ivCloseBlueToothDisplay = this.findViewById(R.id.iv_blue_close);
         timer = (Chronometer) this.findViewById(R.id.chronometer);
         btStatus = (TextView) this.findViewById(R.id.bt_status);
         include_one = findViewById(R.id.include_infusion_status_one);
@@ -126,6 +131,11 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
             finish();
             return;
         }
+        mPreferences = this.getSharedPreferences("profiles", Context.MODE_PRIVATE);
+        vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);//振动器
+        isRing = mPreferences.getBoolean(KEY_RING, DEFAULT_RING);
+        isVibrate = mPreferences.getBoolean(KEY_VIBRATE, DEFAULT_VIBRATE);
+
 
         mLeDeviceListAdapter = new BlueToothListAdapter(this, mLeDeviceList);
         listView.setAdapter(mLeDeviceListAdapter);
@@ -136,7 +146,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
                 mDeviceName = mLeDeviceListAdapter.getItem(i).getName();
                 mDeviceAddress = mLeDeviceListAdapter.getItem(i).getAddress();
                 Intent gattServiceIntent = new Intent(HomeActivity.this, BluetoothLeService.class);
-                bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+                isBound = bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
                 include_one.setVisibility(View.VISIBLE);
                 include_two.setVisibility(View.GONE);
             }
@@ -194,6 +204,14 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, DeviceScannActivity.class);
                 startActivity(intent);
+            }
+        });
+        ivCloseBlueToothDisplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                include_one.setVisibility(View.GONE);
+                include_two.setVisibility(View.VISIBLE);
+                scanLeDevice(true);
             }
         });
     }
@@ -259,26 +277,6 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
         }
     };
 
-
-    /**
-     * @ 获取当前手机屏幕的尺寸(单位:像素)
-     */
-    public static float getPingMuSize(Context mContext) {
-        int densityDpi = mContext.getResources().getDisplayMetrics().densityDpi;
-        float scaledDensity = mContext.getResources().getDisplayMetrics().scaledDensity;
-        float density = mContext.getResources().getDisplayMetrics().density;
-        float xdpi = mContext.getResources().getDisplayMetrics().xdpi;
-        float ydpi = mContext.getResources().getDisplayMetrics().ydpi;
-        int width = mContext.getResources().getDisplayMetrics().widthPixels;
-        int height = mContext.getResources().getDisplayMetrics().heightPixels;
-
-        // 这样可以计算屏幕的物理尺寸
-        float width2 = (width / xdpi) * (width / xdpi);
-        float height2 = (height / ydpi) * (width / xdpi);
-
-        return (float) Math.sqrt(width2 + height2);
-    }
-
     private ImageView mImageView;
     ObjectAnimator animator = null;
     Long currentPlayTime;
@@ -340,6 +338,9 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
 
     private final static String TAG = "Test";
 
+
+    private static final int REQUEST_ENABLE_BT = 1;
+
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
@@ -368,7 +369,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
 
     //    private SoundPool soundPool;
     private MediaPlayer mPlayer;
-    private Vibrator vibrator;
+    private Vibrator vibrator;//振动器
     private long[] pattern = {300, 200, 300, 200}; // OFF/ON/OFF/ON
 
     //    private TextView mConnectionState;
@@ -554,27 +555,13 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
     };
 
     public void initVieww() {
-        mPreferences = this.getSharedPreferences("profiles", Context.MODE_PRIVATE);
+
         // titleView = (TextView) findViewById(R.id.titleLine);
         connect_layout = (FrameLayout) this.findViewById(R.id.connect_layout);
         btnEnd = (Button) this.findViewById(R.id.btn_end);
-        Log.d("Test", "电量状态:" + DEFAULT_BATTERY_LEVEL);
-        isRing = mPreferences.getBoolean(KEY_RING, DEFAULT_RING);
-        isVibrate = mPreferences.getBoolean(KEY_VIBRATE, DEFAULT_VIBRATE);
-
-        final Intent intent = getIntent();
-        mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
-        mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
-
-        vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
-
-        // titleView.setText(mDeviceName);
-        Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
-        bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
     }
 
     private void playRing() {
-
         if (mPlayer != null) {
             mPlayer.release();
             mPlayer = null;
@@ -589,9 +576,19 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
     @Override
     protected void onResume() {
         super.onResume();
+        // 为了确保设备上蓝牙能使用, 如果当前蓝牙设备没启用,弹出对话框向用户要求授予权限来启用
+        if (!mBluetoothAdapter.isEnabled()) {
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        } else {
+            scanLeDevice(true);
+        }
         connect();
         isOnPause = false;
         scanLeDevice(true);
+        include_one.setVisibility(View.GONE);
+        include_two.setVisibility(View.VISIBLE);
+
     }
 
     private void connect() {
@@ -611,7 +608,8 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
     protected void onPause() {
         super.onPause();
         isOnPause = true;
-//        unregisterReceiver(mGattUpdateReceiver);
+        if (isBound)
+            getApplicationContext().unregisterReceiver(mGattUpdateReceiver);
     }
 
     @Override
@@ -620,10 +618,12 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
         timer.stop();
         if (mPlayer != null)
             mPlayer.stop();
-//        vibrator.cancel();
+        vibrator.cancel();
         stopTimerTask();
-        unregisterReceiver(mGattUpdateReceiver);
-        unbindService(mServiceConnection);
+        if (isBound)
+            getApplicationContext().unregisterReceiver(mGattUpdateReceiver);
+        if (isBound)
+            getApplicationContext().unbindService(mServiceConnection);
         mBluetoothLeService = null;
     }
 
@@ -680,7 +680,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
     private AlertDialog mToastDialog;
 
     private void showToastDialog(Context context) {
-
+        updateConnectionState("输液结束");
         // WindowManager.LayoutParams para = new WindowManager.LayoutParams();
         // para.flags = WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
         // WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON;
@@ -734,7 +734,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
         } else {
             mToastDialog.setMessage(mDeviceName + " " + getResources().getString(R.string.infusion_status_end));
         }
-        mToastDialog.show();
+        // mToastDialog.show();
 
         PowerManager pm = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
         if (!pm.isScreenOn()) {
@@ -747,7 +747,6 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
             kl.disableKeyguard();
             //kl.reenableKeyguard();
             wl.release();
-
         }
 
         if (isOnPause) {
@@ -774,6 +773,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
         if (isRing) {
             playRing();
         }
+        Log.d("Test", "修改输液结束UI");
         if (isVibrate) {
             vibrator.vibrate(VIBRATE_DURATION);
             vibrator.vibrate(pattern, 0);
@@ -793,7 +793,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnCheck
             mPlayer.stop();
         }
         if (isVibrate) {
-            // vibrator.cancel();
+            vibrator.cancel();
         }
     }
 

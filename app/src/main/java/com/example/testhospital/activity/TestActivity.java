@@ -9,15 +9,12 @@ import android.widget.TextView;
 import com.example.testhospital.R;
 import com.example.testhospital.base.BaseActivity;
 
-import static com.example.testhospital.activity.HomeActivity.getPingMuSize;
-
 public class TestActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        Log.d("Test", "size" + getPingMuSize(this));
         int screenWidth = getWindowManager().getDefaultDisplay().getWidth();       // 屏幕宽（像素，如：480px）
         int screenHeight = getWindowManager().getDefaultDisplay().getHeight();      // 屏幕高（像素，如：800p）
         Log.e("Test", "screenWidth=" + screenWidth + "; screenHeight=" + screenHeight);

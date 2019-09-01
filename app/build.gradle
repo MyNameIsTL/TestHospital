@@ -28,4 +28,6 @@ dependencies {
     compile 'androidx.test.espresso:espresso-core:3.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation files('libs/CameraUtil-yxq.jar')
+
+    compile 'com.google.code.gson:gson:2.4'
 }

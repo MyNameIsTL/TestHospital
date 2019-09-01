@@ -24,14 +24,14 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:visibility="gone"
                 android:id="@+id/ll_trimeter_line"
                 android:layout_width="match_parent"
                 android:layout_height="145dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="200dp"
-                android:background="@drawable/bg_save_record_info_frame">
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_save_record_info_frame"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="@dimen/bg_record_project_width"
@@ -182,10 +182,10 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
                         android:layout_alignParentRight="true"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="30dp">
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="10dp">
 
                         <LinearLayout
                             android:id="@+id/time_line"
@@ -213,10 +213,11 @@
                         </LinearLayout>
 
                         <ImageView
+                            android:id="@+id/iv_modify_trimeter"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/time_line"
                             android:layout_alignParentRight="true"
+                            android:layout_below="@id/time_line"
                             android:src="@drawable/ic_modify" />
                     </RelativeLayout>
                 </RelativeLayout>
@@ -436,22 +437,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="80dp"
                 android:layout_toRightOf="@id/project_list"
-                android:layout_marginBottom="20dp"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/txt_middle_size"
+                    android:layout_marginBottom="20dp"
                     android:text="正在扫描..."
                     android:textColor="@color/colorWhite"
-                    android:layout_marginBottom="20dp"/>
+                    android:textSize="@dimen/txt_middle_size" />
 
                 <FrameLayout
                     android:layout_width="360dp"
                     android:layout_height="360dp">
+
                     <com.yxq.camera.CameraPreview
                         android:id="@+id/cp_camera_preview"
                         android:layout_width="match_parent"
@@ -552,8 +555,8 @@
                     layout="@layout/include_number_keyboard"
                     android:layout_width="360dp"
                     android:layout_height="280dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp" />
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="10dp" />
             </LinearLayout>
 
             <!--护士头像页-->
@@ -652,8 +655,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/title_line"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginTop="10dp" />
     </RelativeLayout>
 </LinearLayout>

@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testhospital.R;
+import com.example.testhospital.utils.DateUtil;
 import com.example.testhospital.view.LineBreakLayout;
 import com.yxq.camera.CameraError;
 import com.yxq.camera.CameraPreview;
@@ -55,6 +56,10 @@ public class SaveRecordActivity extends AppCompatActivity implements View.OnClic
 
     private TextView tvDate;
     private TextView tvTime;
+
+    private ImageView ivModifyTrimeterTime;
+
+    CameraPreview cp;
 
     private Boolean isLogin = false;
 
@@ -108,9 +113,7 @@ public class SaveRecordActivity extends AppCompatActivity implements View.OnClic
 
         tvDate = findViewById(R.id.tv_date);
         tvTime = findViewById(R.id.tv_time);
-
-        //添加时间工具类
-
+        ivModifyTrimeterTime = findViewById(R.id.iv_modify_trimeter);
 
         findViewById(R.id.iv_back).setOnClickListener(this);
         findViewById(R.id.key_pad_1).setOnClickListener(this);
@@ -127,6 +130,18 @@ public class SaveRecordActivity extends AppCompatActivity implements View.OnClic
         findViewById(R.id.key_pad_sure).setOnClickListener(this);
         //三测表页面跳转
         llTrimeter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isLogin) {
+                    Toast.makeText(SaveRecordActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(SaveRecordActivity.this, InputTrimeterActivity.class);
+                    startActivityForResult(intent, 100);
+                }
+            }
+        });
+        //三测表修改跳转
+        ivModifyTrimeterTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!isLogin) {
@@ -167,12 +182,16 @@ public class SaveRecordActivity extends AppCompatActivity implements View.OnClic
             tvTemperature.setText(data.getStringExtra("temperature"));
             tvPulse.setText(data.getStringExtra("pulse"));
             tvBreathing.setText(data.getStringExtra("breathing"));
+            //添加时间工具类
+            String date = DateUtil.formatCurrent(DateUtil.YEAR_MONTH_DAY_SLASH);
+            String time = DateUtil.formatCurrent(DateUtil.HOUR_MINUTE);
+            tvDate.setText(date);
+            tvTime.setText(time);
         }
     }
 
     private void startPreview() {
         //找到控件
-        CameraPreview cp = findViewById(R.id.cp_camera_preview);
         CameraUtil.INSTANCE.setPreviewView(cp);//设置预览控件
         //设置预览监听
         CameraUtil.INSTANCE.setOnCameraListener(new OnCameraListener() {
@@ -186,6 +205,12 @@ public class SaveRecordActivity extends AppCompatActivity implements View.OnClic
                 //打开相机错误
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        cp = null;
+        super.onDestroy();
     }
 
     private void dongHua() {
